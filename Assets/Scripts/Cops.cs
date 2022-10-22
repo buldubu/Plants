@@ -68,6 +68,10 @@ public class Cops : MonoBehaviour {
                 isMoving = true;
                 waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
             }
+            anim.SetBool("isMoving", false);
+        }else
+        {
+            anim.SetBool("isMoving", false);
         }
     }
 
@@ -116,12 +120,7 @@ public class Cops : MonoBehaviour {
                 break;
         }
         transform.localScale = theScale;
-        //UpdateAnimation();
-    }
-     void UpdateAnimation()
-    {
         anim.SetBool("isMoving", true);
-        //anim.SetBool("", directionVector.y);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
