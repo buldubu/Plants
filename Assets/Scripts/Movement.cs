@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public Sprite PlantedDirt;
     public Animator animator;
     public float deneme = 0;
+    public bool isDead = false;
 
 
     void Start()
@@ -34,36 +35,38 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        transform.Translate(new Vector3(input.x * Time.deltaTime * hiz, input.y * Time.deltaTime * hiz, 0));
+        if (!isDead) { 
+            input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            transform.Translate(new Vector3(input.x * Time.deltaTime * hiz, input.y * Time.deltaTime * hiz, 0));
 
-        Vector3 theScale = transform.localScale;
-        if (input.x > 0)
-        {
-            theScale.x = 1;
-        }
-        else if (input.x < 0)
-        {
-            theScale.x = -1;
-        }
-        transform.localScale = theScale;
+            Vector3 theScale = transform.localScale;
+            if (input.x > 0)
+            {
+                theScale.x = 1;
+            }
+            else if (input.x < 0)
+            {
+                theScale.x = -1;
+            }
+            transform.localScale = theScale;
 
-        if (input.magnitude > 0)
-        {
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
+            if (input.magnitude > 0)
+            {
+                animator.SetBool("isMoving", true);
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
 
-        if (hasPlant)
-        {
-            animator.SetBool("hasPlant", true);
-        }
-        else
-        {
-            animator.SetBool("hasPlant", false);
+            if (hasPlant)
+            {
+                animator.SetBool("hasPlant", true);
+            }
+            else
+            {
+                animator.SetBool("hasPlant", false);
+            }
         }
 
     }

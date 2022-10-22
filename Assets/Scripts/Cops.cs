@@ -17,6 +17,8 @@ public class Cops : MonoBehaviour {
     public float minWaitTime;
     public float maxWaitTime;
     private float waitTimeSeconds;
+    private Animator player_anim;
+    public bool finish = false;
     //public float duration;    //the max time of a walking session (set to ten)
     //float elapsedTime   = 0f; //time since started walk
     //float wait          = 0f; //wait this much time
@@ -31,6 +33,7 @@ public class Cops : MonoBehaviour {
     void Start(){
         //randomX =  Random.Range(-range,range);
         //randomZ = Random.Range(-range,range);
+        player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         anim = GetComponent<Animator>();
@@ -44,6 +47,7 @@ public class Cops : MonoBehaviour {
             isMoving = false;
             isCatched = true;
             anim.SetBool("isCatched", true);
+            player_anim.SetBool("isDead", true);
             //TODO: GAMEOVER
             Gameover();
         }
@@ -55,7 +59,7 @@ public class Cops : MonoBehaviour {
 
     void Update ()
     {
-        if(isMoving)
+        if(isMoving && !finish)
         {
             Move();
         }
@@ -75,8 +79,23 @@ public class Cops : MonoBehaviour {
         }
     }
 
-    private void Gameover(){
+    private void Gameover()
+    {
+        
+        GameObject []enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies)
+        {
+            enemy.GetComponent<Cops>().finish = true;
+        }
+        
+        Invoke("killPlayer", 0.3f);
         Debug.Log("GAMEOVER");
+    }
+
+    private void killPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Movement>().isDead = true;
     }
 
     private void Move()
@@ -128,7 +147,7 @@ public class Cops : MonoBehaviour {
         ChooseDifferentDirection();
     }
 
-        private void ChooseDifferentDirection()
+    private void ChooseDifferentDirection()
     {
         Vector3 temp = directionVector;
         ChangeDirection();

@@ -19,7 +19,6 @@ public class CameraFollow : MonoBehaviour
         
     }
     
-    bool ends_reached = false;
 
     // Update is called once per frame
     void FixedUpdate()
