@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 898e36ecb1cfc4740b41c01594a1a619
+guid: 3cc4a3c8fa117b04f9e663e461c8df45
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,106 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cops_0
+      name: bodyguard-flashlights-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 32
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de915408a893d4ec097b2636cad40a3d
-      internalID: -720278809
+      spriteID: 5fe360a30af95a9479994cb4ed79e2d8
+      internalID: -395930020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cops_1
+      name: bodyguard-flashlights-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 32
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: badf278a1d1da48c1b574471fb8656ae
-      internalID: -262586540
+      spriteID: 4bb3f022187548b40ae2fdab684d890c
+      internalID: -1530623413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cops_2
+      name: bodyguard-flashlights-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 32
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcfcf6481692f451c96c6bd71039ec24
-      internalID: 2025414447
+      spriteID: ffd74df7075fd0c458dc29bf594363d4
+      internalID: -876461009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cops_3
+      name: bodyguard-flashlights-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 32
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b71a442e1366747fd95dcf6ca1e01d20
-      internalID: 879793973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cops_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 32
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a76b84f7342e69e47908e713072c345e
-      internalID: -1320179246
+      spriteID: 8d1131b800fde3342a0877cd6d216c45
+      internalID: -2140537052
       vertices: []
       indices: 
       edges: []
@@ -220,11 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cops_1: -262586540
-      cops_4: -1320179246
-      cops_0: -720278809
-      cops_2: 2025414447
-      cops_3: 879793973
+      bodyguard-flashlights-Sheet_3: -2140537052
+      bodyguard-flashlights-Sheet_0: -395930020
+      bodyguard-flashlights-Sheet_2: -876461009
+      bodyguard-flashlights-Sheet_1: -1530623413
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
