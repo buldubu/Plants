@@ -8,37 +8,26 @@ public class Movement : MonoBehaviour
     public float hiz = 1;
     Vector2 input;
     public bool hasPlant;
+    public Sprite PlantedDirt;
     public Animator animator;
     public float deneme = 0;
 
 
     void Start()
     {
-        hasPlant = false;
     }
 
     void Update()
     {
-        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "EmptyDirt" && hasPlant)
         {
-            var map = collision.collider.GetComponent<Tilemap>();
-            var grid = map.layoutGrid;
-
-            // Find the coordinates of the tile we hit.
-            var contact = collision.GetContact(0);
-            Vector3 contactPoint = contact.point - 0.05f * contact.normal;
-            Vector3 gridPosition = grid.transform.InverseTransformPoint(contactPoint);
-            Vector3Int cell = grid.LocalToCell(gridPosition);
-            cell.z = 0;
-
-            map.SetTile(cell, null);            
+            collision.gameObject.tag = "PlantedDirt";
+            collision.gameObject.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
             hasPlant = false;
-            
         }
             
     }
