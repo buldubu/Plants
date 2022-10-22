@@ -7,18 +7,34 @@ public class CameraFollow : MonoBehaviour
     public float xvalue_r;
     public float xvalue_l;
     
-    public Transform followTransform;
+    Transform followTransform;
     
+    GameObject gameobject;
+    //bool left = false;
+    public GameObject player;
+    void Start(){
+        player = GameObject.Find("player");
+        followTransform = player.transform;
+
+        
+    }
+    
+    bool ends_reached = false;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(followTransform.position.x < xvalue_r && followTransform.position.x > xvalue_l){
-        this.transform.position = new Vector3(followTransform.position.x, followTransform.position.y, this.transform.position.z);
-        }
-        else
-        {
-            this.transform.position = new Vector3(this.transform.position.x, followTransform.position.y, this.transform.position.z);
+        player = GameObject.Find("player");
+        followTransform = player.transform;
+        gameobject = GameObject.Find("Main Camera");
+        if(followTransform!=null){
+            if(followTransform.position.x>xvalue_l && followTransform.position.x<xvalue_r){
+                this.transform.position = new Vector3(followTransform.position.x, followTransform.position.y, this.transform.position.z);
+            }else if(followTransform.position.x <= xvalue_l){
+                gameobject.transform.position = new Vector3(xvalue_l, followTransform.position.y, this.transform.position.z);
+            }else{
+                gameobject.transform.position = new Vector3(xvalue_r, followTransform.position.y, this.transform.position.z);
+            }
         }
     }
 }
