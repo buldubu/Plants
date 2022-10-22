@@ -6594,6 +6594,14 @@ PrefabInstance:
       propertyPath: bounds
       value: 
       objectReference: {fileID: 193472520}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e4bfda1adff19184b85bf1e27f779343, type: 2}
     - target: {fileID: 3367610299299865521, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
       propertyPath: m_Name
       value: scientist (2)
@@ -6684,6 +6692,14 @@ PrefabInstance:
       propertyPath: bounds
       value: 
       objectReference: {fileID: 481897121}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e4bfda1adff19184b85bf1e27f779343, type: 2}
     - target: {fileID: 3367610299299865521, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
       propertyPath: m_Name
       value: scientist (3)
@@ -7241,6 +7257,14 @@ PrefabInstance:
       propertyPath: bounds
       value: 
       objectReference: {fileID: 1569643275}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e4bfda1adff19184b85bf1e27f779343, type: 2}
     - target: {fileID: 3367610299299865521, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
       propertyPath: m_Name
       value: scientist (1)
@@ -9533,6 +9557,14 @@ PrefabInstance:
       propertyPath: bounds
       value: 
       objectReference: {fileID: 102144860}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598097099512509054, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e4bfda1adff19184b85bf1e27f779343, type: 2}
     - target: {fileID: 3367610299299865521, guid: f112a74c4440eea44a09f830844d23c0, type: 3}
       propertyPath: m_Name
       value: scientist

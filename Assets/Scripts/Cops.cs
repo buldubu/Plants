@@ -10,7 +10,7 @@ public class Cops : MonoBehaviour {
     private Animator anim;
     public Collider2D bounds;
     public bool isMoving = true;
-    public bool isCatched = true;
+    public bool isCatched = false;
     public float minMoveTime;
     public float maxMoveTime;
     private float moveTimeSeconds;
