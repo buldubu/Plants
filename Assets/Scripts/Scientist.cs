@@ -17,8 +17,10 @@ public class Scientist : MonoBehaviour {
     public float minWaitTime;
     public float maxWaitTime;
     private float waitTimeSeconds;
+    private Animator player_anim;
 
     void Start(){
+        player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         anim = GetComponent<Animator>();
@@ -32,6 +34,7 @@ public class Scientist : MonoBehaviour {
             isMoving = false;
             isCatched = true;
             anim.SetBool("isCatched", true);
+            player_anim.SetBool("isDead", true);
             //TODO: GAMEOVER
             Gameover();
         }
@@ -62,9 +65,11 @@ public class Scientist : MonoBehaviour {
             anim.SetBool("isMoving", false);
         }
     }
-
+    
+        
     private void Gameover(){
         Debug.Log("GAMEOVER");
+
     }
 
     private void Move()
@@ -129,6 +134,7 @@ public class Scientist : MonoBehaviour {
             ChangeDirection();
         }
     }
-
+    
+   
 }
         
