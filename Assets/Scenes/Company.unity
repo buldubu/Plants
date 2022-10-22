@@ -6539,7 +6539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: speed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: bounds
@@ -6697,7 +6697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: speed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: bounds
@@ -7045,12 +7045,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: speed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: bounds
       value: 
       objectReference: {fileID: 162451894}
+    - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
+      propertyPath: isMoving
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8247630379157524953, guid: abe10ee725f8f41618351105690c0d74, type: 3}
       propertyPath: m_Enabled
       value: 1
