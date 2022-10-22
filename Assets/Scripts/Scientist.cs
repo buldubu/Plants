@@ -18,7 +18,7 @@ public class Scientist : MonoBehaviour {
     public float maxWaitTime;
     private float waitTimeSeconds;
     private Animator player_anim;
-
+    public bool finish = false;
     void Start(){
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -44,9 +44,9 @@ public class Scientist : MonoBehaviour {
         }*/
     }
 
-    void Update ()
+    void FixedUpdate ()
     {
-        if(isMoving)
+        if(isMoving && !finish)
         {
             Move();
         }
@@ -65,11 +65,25 @@ public class Scientist : MonoBehaviour {
             anim.SetBool("isMoving", false);
         }
     }
-    
-        
-    private void Gameover(){
-        Debug.Log("GAMEOVER");
 
+
+    private void Gameover()
+    {
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<Scientist>().finish = true;
+        }
+
+        Invoke("killPlayer", 0.3f);
+        Debug.Log("GAMEOVER");
+    }
+
+    private void killPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Movement>().isDead = true;
     }
 
     private void Move()

@@ -57,7 +57,7 @@ public class Cops : MonoBehaviour {
         }*/
     }
 
-    void Update ()
+    void FixedUpdate ()
     {
         if(isMoving && !finish)
         {

@@ -141,11 +141,12 @@ MonoBehaviour:
   speed: 2
   bounds: {fileID: 0}
   isMoving: 1
-  isCatched: 1
+  isCatched: 0
   minMoveTime: 1
   maxMoveTime: 3
   minWaitTime: 1
   maxWaitTime: 3
+  finish: 0
 --- !u!95 &1598097099512509054
 Animator:
   serializedVersion: 4
