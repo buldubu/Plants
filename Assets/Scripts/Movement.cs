@@ -42,9 +42,6 @@ public class Movement : MonoBehaviour
         {
             flowerGame = GameObject.Find("FlowerGame");
             flowerGame.SetActive(false);
-        }else if(SceneManager.GetActiveScene().name == "Lab" && hasPlant && flowerGame != null)
-        {
-            flowerGame.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
