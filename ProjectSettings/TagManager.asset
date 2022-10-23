@@ -7,7 +7,7 @@ TagManager:
   - Enemy
   - EmptyDirt
   - PlantedDirt
-  - PerfectCut
+  - EndgameCanvas
   layers:
   - Default
   - TransparentFX

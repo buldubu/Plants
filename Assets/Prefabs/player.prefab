@@ -102,7 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiz: 1
+  hasPlant: 0
+  PlantedDirt: {fileID: 1835357058, guid: 3b278b6c4b89a4573b3b5be6024ee586, type: 3}
   animator: {fileID: 4598050893004307473}
+  deneme: 0
 --- !u!50 &4598050893004307501
 Rigidbody2D:
   serializedVersion: 4
@@ -191,3 +194,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480037500a93fb4db90f42139d11045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entry: {fileID: 0}
+  entry_2: {fileID: 0}
