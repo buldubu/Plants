@@ -16,9 +16,11 @@ public class Movement : MonoBehaviour
     public bool isDead = false;
     public WorldO2Bar progbar;
     public List<string> plantedDirtNames;
+    
 
     private int targetScene;
     public AudioSource audiosrc;
+    public AudioSource audiosrc2;
 
     private GameObject flowerGame = null;
 
@@ -47,12 +49,39 @@ public class Movement : MonoBehaviour
             flowerGame = GameObject.Find("FlowerGame");
             flowerGame.SetActive(false);
         }
-        if(animator.GetBool("isMoving")){
+        if(animator.GetBool("isMoving") ){
              //SoundManagerScript.PlaySound("glassbreak");
             if(!audiosrc.isPlaying){
                 SoundManagerScript.PlaySound("sandwalk");
             }
         }
+       /* if (SceneManager.GetActiveScene().name == "Company"){
+            //audiosrc2.mute = true;
+            //audiosrc.mute = false;
+            SoundManagerScript.PlaySound("lament_hisli");
+        }
+        if (SceneManager.GetActiveScene().name == "Company2"){
+            //audiosrc2.mute = true;
+            SoundManagerScript.PlaySound("lament_hisli");
+        }
+        if (SceneManager.GetActiveScene().name == "House"){
+            //audiosrc.mute = true;
+            //audiosrc2.mute = false;
+            SoundManagerScript.PlaySound("lament");
+        }
+        if (SceneManager.GetActiveScene().name == "Desert"){
+            //audiosrc.mute=true;
+            //audiosrc2.mute = false;
+            SoundManagerScript.PlaySound("lament");
+        }
+        if (SceneManager.GetActiveScene().name == "Lab"){
+            //audiosrc.mute = false;
+            //SoundManagerScript.PlaySound("lament");
+        }*/        
+        if (SceneManager.GetActiveScene().name == "Start"){
+            //audiosrc.mute = false;
+            SoundManagerScript.PlaySound("lament");
+        }             
         if (Input.GetKeyDown(KeyCode.H))
         {
             hasPlant = !hasPlant;
@@ -110,6 +139,10 @@ public class Movement : MonoBehaviour
             {
                 animator.SetBool("hasPlant", false);
             }
+        }
+        else if(isDead){
+            audiosrc2.mute = false;
+            SoundManagerScript.PlaySound("lament_hisli");
         }
 
     }

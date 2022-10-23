@@ -4778,6 +4778,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4598050893004307498, guid: c5a37de775b9a45dd925d19e15921cf9, type: 3}
+      propertyPath: audiosrc2
+      value: 
+      objectReference: {fileID: 617267759}
+    - target: {fileID: 4598050893004307498, guid: c5a37de775b9a45dd925d19e15921cf9, type: 3}
       propertyPath: PlantedDirt
       value: 
       objectReference: {fileID: 1835357058, guid: 3b278b6c4b89a4573b3b5be6024ee586, type: 3}

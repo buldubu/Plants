@@ -79,6 +79,7 @@ public class Cops : MonoBehaviour {
         
         Invoke("killPlayer", 0.3f);
         Debug.Log("GAMEOVER");
+        
     }
 
     private void killPlayer()

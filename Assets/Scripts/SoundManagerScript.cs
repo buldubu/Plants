@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip glassbreak, harvestfailure, harvestplant, harvestsuccess, homegate, labgate, homewalk, labwalk, placeplant, sadness, sandwalk;
+    public static AudioClip glassbreak, harvestfailure, harvestplant, harvestsuccess, homegate, labgate, homewalk, 
+    labwalk, placeplant, sadness, sandwalk, lament_hisli, ohno;
     
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
      glassbreak = Resources.Load<AudioClip> ("glassbreak");
+     lament_hisli = Resources.Load<AudioClip> ("lament_hisli");
+     ohno = Resources.Load<AudioClip> ("ohno");
      harvestfailure = Resources.Load<AudioClip> ("harvestfailure");
      harvestplant = Resources.Load<AudioClip> ("harvestplant");
      harvestsuccess = Resources.Load<AudioClip> ("harvestsuccess");
@@ -67,7 +70,13 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "sandwalk":
                 audioSrc.PlayOneShot (sandwalk);
-                break;                                        
+                break;  
+            case "lament_hisli":
+                audioSrc.PlayOneShot (lament_hisli);
+                break;   
+             case "ohno":
+                audioSrc.PlayOneShot (ohno);
+                break;                                                       
         }
     }
 }
