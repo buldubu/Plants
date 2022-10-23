@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public WorldO2Bar progbar;
     public List<string> plantedDirtNames;
     private int targetScene;
+    public AudioSource audiosrc;
 
 
     void Start()
@@ -38,6 +39,12 @@ public class Movement : MonoBehaviour
                     temp.tag = "PlantedDirt";
                     temp.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
                 }
+            }
+        }
+        if(animator.GetBool("isMoving")){
+             //SoundManagerScript.PlaySound("glassbreak");
+            if(!audiosrc.isPlaying){
+                SoundManagerScript.PlaySound("sandwalk");
             }
         }
         if (Input.GetKeyDown(KeyCode.H))
@@ -79,6 +86,7 @@ public class Movement : MonoBehaviour
             if (input.magnitude > 0)
             {
                 animator.SetBool("isMoving", true);
+               
             }
             else
             {
