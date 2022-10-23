@@ -26,6 +26,7 @@ public class FlowerGame : MonoBehaviour
     float curSpeed;
     float curTimer;
     float curTargetPosition;
+    bool win = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,15 +74,27 @@ public class FlowerGame : MonoBehaviour
             (posY < fifthBound.position.y + cursorSize && posY > sixthBound.position.y)) {
             // fail 1-2, 5-6
             failIndicator.GetComponent<SpriteRenderer>().enabled = true;
+            win = false;
         } else if((posY + cursorSize < secondBound.position.y  && posY > thirdBound.position.y + cursorSize) || 
                     (posY + cursorSize < fourthBound.position.y && posY > fifthBound.position.y + cursorSize) ){
             // ave 2-3, 4-5            
             aweIndicator.GetComponent<SpriteRenderer>().enabled = true;
+            win = true;
         } else if(posY + cursorSize < thirdBound.position.y && posY > fourthBound.position.y + cursorSize){
             // 3-4 WIN
             perfIndicator.GetComponent<SpriteRenderer>().enabled = true;
+            win = true;
         }
 
         myCursor.transform.position = new Vector3(myCursor.transform.position.x, myCursor.transform.position.y, myCursor.transform.position.z);
+        Invoke("finishGame", 2.5f);
+    }
+
+    private void finishGame()
+    {
+        GameObject player = GameObject.Find("player");
+        player.GetComponent<Movement>().hasPlant = win;
+        GameObject flowerGame = GameObject.Find("FlowerGame");
+        flowerGame.SetActive(false);
     }
 }

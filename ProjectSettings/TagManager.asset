@@ -8,6 +8,7 @@ TagManager:
   - EmptyDirt
   - PlantedDirt
   - EndgameCanvas
+  - FlowerGame
   layers:
   - Default
   - TransparentFX

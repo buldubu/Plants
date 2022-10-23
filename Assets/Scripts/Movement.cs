@@ -16,19 +16,18 @@ public class Movement : MonoBehaviour
     public bool isDead = false;
     public WorldO2Bar progbar;
     public List<string> plantedDirtNames;
-    private int targetScene;
+    private GameObject flowerGame = null;
 
 
     void Start()
     {
-        targetScene = SceneManager.GetActiveScene().buildIndex;
 
         //progbar.Increment(0.16f);
     }
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == targetScene)
+        if (SceneManager.GetActiveScene().name == "House")
         {
             foreach (string plantedDirtName in plantedDirtNames)
             {
@@ -39,6 +38,13 @@ public class Movement : MonoBehaviour
                     temp.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
                 }
             }
+        }else if(flowerGame == null && SceneManager.GetActiveScene().name == "Lab")
+        {
+            flowerGame = GameObject.Find("FlowerGame");
+            flowerGame.SetActive(false);
+        }else if(SceneManager.GetActiveScene().name == "Lab" && hasPlant && flowerGame != null)
+        {
+            flowerGame.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -55,7 +61,10 @@ public class Movement : MonoBehaviour
             collision.gameObject.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
             hasPlant = false;
             progbar.Increment(0.16f);
-        }          
+        }else if(collision.gameObject.tag == "FlowerGame")
+        {
+            flowerGame.SetActive(true);
+        }
     }
 
     void FixedUpdate()
