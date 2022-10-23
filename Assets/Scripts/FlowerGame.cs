@@ -16,7 +16,12 @@ public class FlowerGame : MonoBehaviour
     public GameObject aweIndicator;
     public GameObject failIndicator;
     private bool isClicked = false;
-    
+
+    public GameObject flower;
+    public Sprite normalPlant;
+    public Sprite badPlant;
+    public Sprite goodPlant;
+
     [Header("Cursor Areas")]
     public GameObject myCursor;
     [SerializeField] float curTimeRandomizer = 3f;
@@ -70,20 +75,23 @@ public class FlowerGame : MonoBehaviour
     private void cutFlower(){
         float posY = myCursor.transform.position.y;
         cursorSize = 0;
-        if((posY < firstBound.position.y - cursorSize && posY > secondBound.position.y + cursorSize) || 
+        if ((posY < firstBound.position.y - cursorSize && posY > secondBound.position.y + cursorSize) || 
             (posY < fifthBound.position.y + cursorSize && posY > sixthBound.position.y)) {
             // fail 1-2, 5-6
             failIndicator.GetComponent<SpriteRenderer>().enabled = true;
             win = false;
+            flower.GetComponent<SpriteRenderer>().sprite = badPlant;
         } else if((posY + cursorSize < secondBound.position.y  && posY > thirdBound.position.y + cursorSize) || 
                     (posY + cursorSize < fourthBound.position.y && posY > fifthBound.position.y + cursorSize) ){
             // ave 2-3, 4-5            
             aweIndicator.GetComponent<SpriteRenderer>().enabled = true;
             win = true;
+            flower.GetComponent<SpriteRenderer>().sprite = goodPlant;
         } else if(posY + cursorSize < thirdBound.position.y && posY > fourthBound.position.y + cursorSize){
             // 3-4 WIN
             perfIndicator.GetComponent<SpriteRenderer>().enabled = true;
             win = true;
+            flower.GetComponent<SpriteRenderer>().sprite = goodPlant;
         }
 
         myCursor.transform.position = new Vector3(myCursor.transform.position.x, myCursor.transform.position.y, myCursor.transform.position.z);

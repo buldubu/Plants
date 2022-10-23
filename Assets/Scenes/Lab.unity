@@ -2079,6 +2079,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &177180384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6935331595264606902, guid: effad2014afc744efbba5b63c9203d96, type: 3}
+  m_PrefabInstance: {fileID: 1071471358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &300480379
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,6 +5698,22 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6935331596211756060, guid: effad2014afc744efbba5b63c9203d96, type: 3}
+      propertyPath: flower
+      value: 
+      objectReference: {fileID: 177180384}
+    - target: {fileID: 6935331596211756060, guid: effad2014afc744efbba5b63c9203d96, type: 3}
+      propertyPath: badPlant
+      value: 
+      objectReference: {fileID: -1392639350, guid: 29428d923d9e24d8797270338915ebee, type: 3}
+    - target: {fileID: 6935331596211756060, guid: effad2014afc744efbba5b63c9203d96, type: 3}
+      propertyPath: goodPlant
+      value: 
+      objectReference: {fileID: -16308268, guid: 29428d923d9e24d8797270338915ebee, type: 3}
+    - target: {fileID: 6935331596211756060, guid: effad2014afc744efbba5b63c9203d96, type: 3}
+      propertyPath: normalPlant
+      value: 
+      objectReference: {fileID: 307971404, guid: 29428d923d9e24d8797270338915ebee, type: 3}
     - target: {fileID: 8698871987784187073, guid: effad2014afc744efbba5b63c9203d96, type: 3}
       propertyPath: m_RootOrder
       value: 5
