@@ -19,7 +19,12 @@ public class Scientist : MonoBehaviour {
     private float waitTimeSeconds;
     private Animator player_anim;
     public bool finish = false;
-    void Start(){
+    private GameObject canvas;
+
+    void Start()
+    {
+        canvas = GameObject.Find("Canvas");
+        canvas.SetActive(false);
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -29,19 +34,16 @@ public class Scientist : MonoBehaviour {
         directionVector = Vector3.left;
         ChangeDirection();
     }
-    private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.tag == "Player"){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
             isMoving = false;
             isCatched = true;
             anim.SetBool("isCatched", true);
             player_anim.SetBool("isDead", true);
-            //TODO: GAMEOVER
             Gameover();
         }
-        /*if(collision.gameObject.tag == "Walls"){
-            isMoving = false;
-            ChangeDirection();
-        }*/
     }
 
     void FixedUpdate ()
@@ -69,19 +71,18 @@ public class Scientist : MonoBehaviour {
 
     private void Gameover()
     {
-
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<Scientist>().finish = true;
         }
-
         Invoke("killPlayer", 0.3f);
         Debug.Log("GAMEOVER");
     }
 
     private void killPlayer()
     {
+        canvas.SetActive(true);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Movement>().isDead = true;
     }
@@ -91,12 +92,10 @@ public class Scientist : MonoBehaviour {
         Vector3 temp = myTransform.position + directionVector * speed * Time.deltaTime;
         if (bounds.bounds.Contains(temp))
         {
-            Debug.Log("IF");
             myRigidbody.MovePosition(temp);
         }
         else
         {
-             Debug.Log("else");
             ChangeDirection();
         }
     }
@@ -137,7 +136,7 @@ public class Scientist : MonoBehaviour {
         ChooseDifferentDirection();
     }
 
-        private void ChooseDifferentDirection()
+    private void ChooseDifferentDirection()
     {
         Vector3 temp = directionVector;
         ChangeDirection();
@@ -148,7 +147,4 @@ public class Scientist : MonoBehaviour {
             ChangeDirection();
         }
     }
-    
-   
 }
-        
