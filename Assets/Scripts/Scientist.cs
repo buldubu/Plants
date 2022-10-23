@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scientist : MonoBehaviour {
     private Vector3 directionVector;
@@ -20,6 +21,7 @@ public class Scientist : MonoBehaviour {
     private Animator player_anim;
     public bool finish = false;
     void Start(){
+        //CanvasObject.GetComponent<Canvas>().enabled = false;
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -77,6 +79,7 @@ public class Scientist : MonoBehaviour {
         }
 
         Invoke("killPlayer", 0.3f);
+        //CanvasObject.GetComponent<Canvas>().enabled = true;
         Debug.Log("GAMEOVER");
     }
 

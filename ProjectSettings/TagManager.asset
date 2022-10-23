@@ -8,6 +8,7 @@ TagManager:
   - EmptyDirt
   - PlantedDirt
   - EndgameCanvas
+  - ProgressBar
   layers:
   - Default
   - TransparentFX

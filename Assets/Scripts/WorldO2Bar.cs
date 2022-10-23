@@ -24,9 +24,17 @@ public class WorldO2Bar : MonoBehaviour
         if(slider.value < Target){
             slider.value += FillSpeed * Time.deltaTime;
         }
+        if(slider.value == Target){
+        Debug.Log("WON!!!!");
+        GameWon();
     }
+    }
+
     public void Increment(float newprog){
         Debug.Log("Increment");
         Target = slider.value + newprog;
+    }
+    private void GameWon(){
+        
     }
 }

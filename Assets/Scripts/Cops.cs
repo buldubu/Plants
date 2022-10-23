@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cops : MonoBehaviour {
     private Vector3 directionVector;
@@ -19,20 +20,12 @@ public class Cops : MonoBehaviour {
     private float waitTimeSeconds;
     private Animator player_anim;
     public bool finish = false;
-    //public float duration;    //the max time of a walking session (set to ten)
-    //float elapsedTime   = 0f; //time since started walk
-    //float wait          = 0f; //wait this much time
-    //float waitTime      = 0f; //waited this much time
-    //public float range = 16;
+    //public CanvasObject canvasobject;
 
-    //float randomX;  //randomly go this X direction
-    //float randomZ;  //randomly go this Z direction
 
-    //bool move = true; //start moving
 
     void Start(){
-        //randomX =  Random.Range(-range,range);
-        //randomZ = Random.Range(-range,range);
+        //canvasobject.GetComponent<Canvas>().enabled = false;
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -80,8 +73,7 @@ public class Cops : MonoBehaviour {
     }
 
     private void Gameover()
-    {
-        
+    {        
         GameObject []enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {
@@ -89,6 +81,7 @@ public class Cops : MonoBehaviour {
         }
         
         Invoke("killPlayer", 0.3f);
+        //canvasobject.GetComponent<Canvas>().enabled = true;
         Debug.Log("GAMEOVER");
     }
 
