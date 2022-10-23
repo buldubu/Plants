@@ -7,7 +7,7 @@ public class Cops : MonoBehaviour {
     private Transform myTransform;
     public float speed;
     private Rigidbody2D myRigidbody;
-    private Animator anim;
+    public Animator anim;
     public Collider2D bounds;
     public bool isMoving = true;
     public bool isCatched = false;
@@ -24,7 +24,7 @@ public class Cops : MonoBehaviour {
     void Start()
     {
         canvas = GameObject.Find("Canvas");
-        canvas.SetActive(false);
+        canvas.GetComponent<Canvas>().enabled = false;
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -62,7 +62,8 @@ public class Cops : MonoBehaviour {
                 waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
             }
             anim.SetBool("isMoving", false);
-        }else
+        }
+        else
         {
             anim.SetBool("isMoving", false);
         }
@@ -82,7 +83,7 @@ public class Cops : MonoBehaviour {
 
     private void killPlayer()
     {
-        canvas.SetActive(true);
+        canvas.GetComponent<Canvas>().enabled = true;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Movement>().isDead = true;
     }
@@ -147,6 +148,5 @@ public class Cops : MonoBehaviour {
             ChangeDirection();
         }
     }
-
 }
         

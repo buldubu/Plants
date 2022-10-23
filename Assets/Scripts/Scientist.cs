@@ -24,7 +24,7 @@ public class Scientist : MonoBehaviour {
     void Start()
     {
         canvas = GameObject.Find("Canvas");
-        canvas.SetActive(false);
+        canvas.GetComponent<Canvas>().enabled = false;
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -82,7 +82,7 @@ public class Scientist : MonoBehaviour {
 
     private void killPlayer()
     {
-        canvas.SetActive(true);
+        canvas.GetComponent<Canvas>().enabled = true;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Movement>().isDead = true;
     }
