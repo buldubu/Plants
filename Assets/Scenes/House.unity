@@ -981,7 +981,7 @@ GameObject:
   - component: {fileID: 192343620}
   - component: {fileID: 192343619}
   m_Layer: 0
-  m_Name: dirt32_4 (4)
+  m_Name: dirt32_4_4
   m_TagString: EmptyDirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4740,7 +4740,7 @@ GameObject:
   - component: {fileID: 714592674}
   - component: {fileID: 714592673}
   m_Layer: 0
-  m_Name: dirt32_4 (3)
+  m_Name: dirt32_4_3
   m_TagString: EmptyDirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6669,7 +6669,7 @@ GameObject:
   - component: {fileID: 1464294351}
   - component: {fileID: 1464294353}
   m_Layer: 0
-  m_Name: dirt32_4
+  m_Name: dirt32_4_0
   m_TagString: EmptyDirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6884,7 +6884,7 @@ GameObject:
   - component: {fileID: 1504598956}
   - component: {fileID: 1504598955}
   m_Layer: 0
-  m_Name: dirt32_4 (1)
+  m_Name: dirt32_4_1
   m_TagString: EmptyDirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7366,7 +7366,7 @@ GameObject:
   - component: {fileID: 1902897745}
   - component: {fileID: 1902897744}
   m_Layer: 0
-  m_Name: dirt32_4 (5)
+  m_Name: dirt32_4_5
   m_TagString: EmptyDirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7526,7 +7526,7 @@ GameObject:
   - component: {fileID: 2008678018}
   - component: {fileID: 2008678017}
   m_Layer: 0
-  m_Name: dirt32_4 (2)
+  m_Name: dirt32_4_2
   m_TagString: EmptyDirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,40 +16,33 @@ public class Movement : MonoBehaviour
     public bool isDead = false;
     public WorldO2Bar progbar;
     public List<string> plantedDirtNames;
-    private int currScene;
     private int targetScene;
-    private bool sceneUpdated;
 
 
     void Start()
     {
-        currScene = SceneManager.GetActiveScene().buildIndex;
         targetScene = SceneManager.GetActiveScene().buildIndex;
-        sceneUpdated = false;
 
         //progbar.Increment(0.16f);
     }
 
     void Update()
     {
-        if (currScene == targetScene && !sceneUpdated)
+        if (SceneManager.GetActiveScene().buildIndex == targetScene)
         {
             foreach (string plantedDirtName in plantedDirtNames)
             {
-                Debug.Log(plantedDirtName);
                 GameObject temp = GameObject.Find(plantedDirtName);
-                temp.tag = "PlantedDirt";
-                temp.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
+                if (temp.tag == "EmptyDirt")
+                {
+                    temp.tag = "PlantedDirt";
+                    temp.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
+                }
             }
-            sceneUpdated = true;
         }
-        else if (sceneUpdated)
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            currScene = SceneManager.GetActiveScene().buildIndex;
-            if (currScene != targetScene)
-            {
-                sceneUpdated = false;
-            }
+            hasPlant = !hasPlant;
         }
     }
 
@@ -62,8 +55,7 @@ public class Movement : MonoBehaviour
             collision.gameObject.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
             hasPlant = false;
             progbar.Increment(0.16f);
-        }
-            
+        }          
     }
 
     void FixedUpdate()
@@ -102,27 +94,8 @@ public class Movement : MonoBehaviour
                 animator.SetBool("hasPlant", false);
             }
         }
-        if(Input.GetKeyDown(KeyCode.P))
-            {
-            PauseGame();
-            }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            ResetGame();
-        }
 
     }
 
-    private void ResetGame()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-
-    }
-
-    private void PauseGame()
-    {
-        if(Time.timeScale == 1f){Time.timeScale = 0f;}
-        else{Time.timeScale = 1f;}
-    }
 
 }
