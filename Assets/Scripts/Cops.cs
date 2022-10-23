@@ -8,7 +8,7 @@ public class Cops : MonoBehaviour {
     private Transform myTransform;
     public float speed;
     private Rigidbody2D myRigidbody;
-    private Animator anim;
+    public Animator anim;
     public Collider2D bounds;
     public bool isMoving = true;
     public bool isCatched = false;
@@ -20,12 +20,21 @@ public class Cops : MonoBehaviour {
     private float waitTimeSeconds;
     private Animator player_anim;
     public bool finish = false;
+<<<<<<< HEAD
     //public CanvasObject canvasobject;
 
 
 
     void Start(){
         //canvasobject.GetComponent<Canvas>().enabled = false;
+=======
+    private GameObject canvas;
+
+    void Start()
+    {
+        canvas = GameObject.Find("Canvas");
+        canvas.GetComponent<Canvas>().enabled = false;
+>>>>>>> 354a5319d055c00fd8680a3f43b6d982669f256a
         player_anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
@@ -35,19 +44,16 @@ public class Cops : MonoBehaviour {
         directionVector = Vector3.left;
         ChangeDirection();
     }
-    private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.tag == "Player"){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
             isMoving = false;
             isCatched = true;
             anim.SetBool("isCatched", true);
             player_anim.SetBool("isDead", true);
-            //TODO: GAMEOVER
             Gameover();
         }
-        /*if(collision.gameObject.tag == "Walls"){
-            isMoving = false;
-            ChangeDirection();
-        }*/
     }
 
     void FixedUpdate ()
@@ -66,14 +72,19 @@ public class Cops : MonoBehaviour {
                 waitTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
             }
             anim.SetBool("isMoving", false);
-        }else
+        }
+        else
         {
             anim.SetBool("isMoving", false);
         }
     }
 
     private void Gameover()
+<<<<<<< HEAD
     {        
+=======
+    {
+>>>>>>> 354a5319d055c00fd8680a3f43b6d982669f256a
         GameObject []enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {
@@ -87,6 +98,7 @@ public class Cops : MonoBehaviour {
 
     private void killPlayer()
     {
+        canvas.GetComponent<Canvas>().enabled = true;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Movement>().isDead = true;
     }
@@ -151,6 +163,5 @@ public class Cops : MonoBehaviour {
             ChangeDirection();
         }
     }
-
 }
         

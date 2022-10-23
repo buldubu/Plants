@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -14,22 +15,50 @@ public class Movement : MonoBehaviour
     public float deneme = 0;
     public bool isDead = false;
     public WorldO2Bar progbar;
+    public List<string> plantedDirtNames;
+    private int currScene;
+    private int targetScene;
+    private bool sceneUpdated;
 
 
     void Start()
     {
+        currScene = SceneManager.GetActiveScene().buildIndex;
+        targetScene = SceneManager.GetActiveScene().buildIndex;
+        sceneUpdated = false;
+
         //progbar.Increment(0.16f);
     }
 
     void Update()
     {
+        if (currScene == targetScene && !sceneUpdated)
+        {
+            foreach (string plantedDirtName in plantedDirtNames)
+            {
+                Debug.Log(plantedDirtName);
+                GameObject temp = GameObject.Find(plantedDirtName);
+                temp.tag = "PlantedDirt";
+                temp.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
+            }
+            sceneUpdated = true;
+        }
+        else if (sceneUpdated)
+        {
+            currScene = SceneManager.GetActiveScene().buildIndex;
+            if (currScene != targetScene)
+            {
+                sceneUpdated = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "EmptyDirt" && hasPlant)
+        if (collision.gameObject.tag == "EmptyDirt" && hasPlant && !plantedDirtNames.Contains(collision.gameObject.name))
         {
             collision.gameObject.tag = "PlantedDirt";
+            plantedDirtNames.Add(collision.gameObject.name);
             collision.gameObject.GetComponent<SpriteRenderer>().sprite = PlantedDirt;
             hasPlant = false;
             progbar.Increment(0.16f);
