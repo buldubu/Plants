@@ -16,6 +16,10 @@ public class Movement : MonoBehaviour
     public bool isDead = false;
     public WorldO2Bar progbar;
     public List<string> plantedDirtNames;
+
+    private int targetScene;
+    public AudioSource audiosrc;
+
     private GameObject flowerGame = null;
 
 
@@ -42,6 +46,12 @@ public class Movement : MonoBehaviour
         {
             flowerGame = GameObject.Find("FlowerGame");
             flowerGame.SetActive(false);
+        }
+        if(animator.GetBool("isMoving")){
+             //SoundManagerScript.PlaySound("glassbreak");
+            if(!audiosrc.isPlaying){
+                SoundManagerScript.PlaySound("sandwalk");
+            }
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -85,6 +95,7 @@ public class Movement : MonoBehaviour
             if (input.magnitude > 0)
             {
                 animator.SetBool("isMoving", true);
+               
             }
             else
             {
