@@ -7,6 +7,12 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadHomeScene()
     {
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("House");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    
 }
+
